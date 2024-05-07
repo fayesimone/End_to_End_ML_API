@@ -1,0 +1,36 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: fayetitchenal-vs
+  namespace: fayetitchenal
+spec:
+  hosts:
+    - fayetitchenal.mids255.com
+  gateways:
+    - istio-ingress/fayetitchenal-gateway
+  http:
+    - match:
+      - uri:
+          prefix: "/lab4/"
+      - uri:
+          prefix: "/lab4"
+      rewrite:
+        uri: "/"
+      route:
+        - destination:
+            host: prediction-service
+            port:
+              number: 8000
+    - match:
+      - uri:
+          prefix: "/project/"
+      - uri:
+          prefix: "/project"
+      rewrite:
+        uri: "/"
+      route:
+        - destination:
+            host: project-service
+            port:
+              number: 8000
