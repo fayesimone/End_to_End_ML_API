@@ -42,8 +42,8 @@ curl -X 'POST' \
 ## Testing Performance of Project Application
 
 During peak load testing, the application was able to respond to requests within 1 second for 99% of requests. There were two spikes in P99 latency, each hitting about 3 seconds response time. These spikes are likely correlated when resources were coming online as part of horizontal pod autoscaling. 
-![Requests duration during load testing.](/mlapi/request_dur_project.png)Figure 1
+![Requests duration during load testing.](/request_dur_project.png)Figure 1
 
 
 Despite these two peaks in P99 response time latency, all requests had good responses (200). 
-![Request response codes during load testing.](/mlapi/requests_responsecodes_project.png)Figure 2
+![Request response codes during load testing.](/requests_responsecodes_project.png)Figure 2
